@@ -1,0 +1,13 @@
+
+
+1. Open cmd
+
+2. cd C:\Users\DAN\AppData\Local\Android\Sdk\tools\bin
+
+3. avdmanager list avd
+
+get the name: Nexus_S_API_22
+
+4. cd .. (to back to folder tools) 
+
+5. emulator -avd Nexus_S_API_22
