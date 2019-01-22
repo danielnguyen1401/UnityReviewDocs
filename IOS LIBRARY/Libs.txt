@@ -1,0 +1,31 @@
+
+
+
+
+FACEBOOK ADS
+- libxml to Linked Frameworks and Libraries
+- StoreKit.framework 
+
+APPSFLYER
+-	AdSupport.framework
+-	iAd.framework
+
+
+FIREBASE 
+
+GoogleService-Info.plist > IS_ANALYTICS_ENABLED > Turn on
+
+
+APPLOVIN
+- AdSupport
+- AVFoundation
+- CoreGraphics
+- CoreMedia
+- CoreTelephony
+- SafariServices (NEW)
+- StoreKit
+- SystemConfiguration
+- UIKit
+- WebKit (NEW)
+- libz.tbd (NEW)
+
