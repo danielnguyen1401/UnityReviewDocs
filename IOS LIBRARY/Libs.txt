@@ -1,7 +1,5 @@
 
 
-
-
 FACEBOOK ADS
 - libxml to Linked Frameworks and Libraries
 - StoreKit.framework 
@@ -9,6 +7,9 @@ FACEBOOK ADS
 APPSFLYER
 -	AdSupport.framework
 -	iAd.framework
+- Security.Framework (for track uninstall)
+- UserNotifications.framework
+XCode > Capabilities > Editor area > Push notification switch to On > Background Modes switch to On > Remote notifications > checkbox under Background Modes
 
 
 FIREBASE 
@@ -29,3 +30,67 @@ APPLOVIN
 - WebKit (NEW)
 - libz.tbd (NEW)
 
+
+For Facebook Audience Network
+On Android, if you encounter the "Unable to convert classes into dex format" issue when building your game. There might be duplicated files in your project
+
+Plugins > Android > libs > delete the support-xxx files in AudienceNetwork folder:
+- support-compat
+- support-core-ui
+- support-core-utils
+- support-v4 
+
+For AppLovin (Android - specific)
+you need to add the AppLovin SDK key to its AndroidManifest.xml file located at Assets/Plugins/Android/AppLovin	folder
+
+<meta-data	android:name="applovin.sdk.key"	android:value="YOUR_SDK_KEY"/>
+
+
+*** GOOGLE ANALYTICS 
+	- AdSupport.framework
+	- CoreData.framework
+	- SystemConfiguration.framework
+	- libz.dylib
+
+Add Library to Unity
+1. Google mobile ads with Google IOSResolver v1.2.88.
+02. Firebase Analytics with Google IOSResolver v1.2.98
+
+-----------------------------------------------------------------------------------------
+Resolve for Admob and Firebase: (Check at AndroidResolverDependencies.xml)
+
+*** GoogleMobileAdsDependencies.xml
+ edit: <androidPackage spec="com.google.android.gms:play-services-ads:15.0.1"> ->  <androidPackage spec="com.google.android.gms:play-services-ads:17.1.2">
+
+ add: 
+ <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+
+-----------------------------------------------------------------------------------------
+
+
+
+configurations {
+        all*.exclude group: 'com.android.support', module: 'support-v4'
+}
+
+-----------------------------------------------------------------------------------------
+ads: unity ads, applovin, fan, vungle, admob
+sdk: fb, appsflyer, firebase
+
+
+-----------------
+for Armv7 and x86
+	ndk 
+	{
+		abiFilters 'armeabi-v7a', 'x86'
+	}
+
+
+...
+	packagingOptions {
+        doNotStrip '*/armeabi-v7a/*.so'
+        doNotStrip '*/x86/*.so'
+	}
+
+
+       Task exception on worker thread: java.lang.NoSuchFieldError: No static field zzaqq of type [Ljava/lang/String; in class Lcom/google/android/gms/measurement/internal/zzcu; or its superclasses (declaration of 'com.google.android.gms.measurement.internal.zzcu' appears in /data/app/com.xgame.donutpuzzlee-2/split_lib_dependencies_apk.apk:classes2.dex): com.google.android.gms.measurement.internal.zzda.zza

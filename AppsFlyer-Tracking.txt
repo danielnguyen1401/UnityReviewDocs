@@ -1,0 +1,66 @@
+
+
+ANDROID SETUP
+AndroidManifest.xml:
+
+<!-- receiver should be inside the <application> tag -->
+<receiver android:name="com.appsflyer.MultipleInstallBroadcastReceiver" android:exported="true">
+        <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+        </intent-filter>
+</receiver>
+
+
+<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+
+Within the application tag:
+
+<receiver android:name="com.appsflyer.SingleInstallBroadcastReceiver" android:exported="true">
+    <intent-filter>
+         <action android:name="com.android.vending.INSTALL_REFERRER" />
+     </intent-filter>
+</receiver>
+
+--------------------------
+
+Proguard-unity.txt
+-keep class bitter.jnibridge.* { *; }
+-keep class com.unity3d.player.* { *; }
+-keep class org.fmod.* { *; }
+-ignorewarnings
+-dontwarn com.android.installreferrer
+-dontwarn com.appsflyer.**
+-keep public class com.google.firebase.iid.FirebaseInstanceId {
+  public *;
+}
+
+
+com.google.firebase.MessagingUnityPlayerActivity
+
+This huge platform provides SDKs for both Android and iOS to track metrics and to improve the performance of the apps. If you want to track uninstalls for an Android app you have to follow some steps:
+
+Register to Firebase Console.
+Register to Google Developer Console.
+Integrate with AppsFlyer SDK.
+View Uninstall Data in AppsFlyer Dashboard.
+There is a documentation file for iOS too if you want to measure uninstalls for your app:
+
+Go to Apple Developer Members Center and find your app.
+Generate your Certificate or renew your Certificate.
+Export the .p12 file.
+Integrate with AppsFlyer SDK.
+Add Push Notifications.
+Test Uninstall.
+View Uninstall Data in Apps Flyer Dashboard.
+
+
+
+
+
