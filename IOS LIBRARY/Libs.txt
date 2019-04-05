@@ -40,6 +40,11 @@ Plugins > Android > libs > delete the support-xxx files in AudienceNetwork folde
 - support-core-utils
 - support-v4 
 
+*** iOS error with Unity ads
+Resolve: Open Unity-iPhone > Classes > UnityAds > UnityAdsUnityWrapper.mm > At Target Membership -> turn off Unity-iPhone
+
+
+-----------------------------------
 For AppLovin (Android - specific)
 you need to add the AppLovin SDK key to its AndroidManifest.xml file located at Assets/Plugins/Android/AppLovin	folder
 
@@ -78,19 +83,3 @@ ads: unity ads, applovin, fan, vungle, admob
 sdk: fb, appsflyer, firebase
 
 
------------------
-for Armv7 and x86
-	ndk 
-	{
-		abiFilters 'armeabi-v7a', 'x86'
-	}
-
-
-...
-	packagingOptions {
-        doNotStrip '*/armeabi-v7a/*.so'
-        doNotStrip '*/x86/*.so'
-	}
-
-
-       Task exception on worker thread: java.lang.NoSuchFieldError: No static field zzaqq of type [Ljava/lang/String; in class Lcom/google/android/gms/measurement/internal/zzcu; or its superclasses (declaration of 'com.google.android.gms.measurement.internal.zzcu' appears in /data/app/com.xgame.donutpuzzlee-2/split_lib_dependencies_apk.apk:classes2.dex): com.google.android.gms.measurement.internal.zzda.zza
