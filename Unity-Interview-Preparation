@@ -1,0 +1,24 @@
+1. Script lifecycle flowchart
+
+Awake()
+OnEnable()
+Start()
+FixedUpdate()
+Update()
+LateUpdate()
+OnGUI()
+OnApplicationQuit()
+OnDisable()
+OnDestroy()
+
+
+2. Dựa trên tính năng và mục đích của shader mà chúng được phân chia thành mấy loại?
+Vertex shader
+Pixel shader - Fragment shader
+Geometry shader
+Compute shader
+Tessellation shader
+
+
+
+
